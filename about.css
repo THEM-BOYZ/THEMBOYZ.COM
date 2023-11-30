@@ -1,0 +1,216 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Oxygen;
+    background-color: rgb(158, 157, 157);
+    background: transparent;
+  }
+  .wrapper{
+    max-width: 1920px;
+    margin: auto;
+  }
+  
+  .main-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    background: #6a6a6a;
+    z-index: 10;
+  }
+  
+  .home-button {
+    display: flex;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 900;
+    padding: 5px;
+  }
+  
+  .navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    list-style-type: none;
+    margin: 6px;
+    padding: 0;
+  }
+  
+  .nav-link {
+    display: flex;
+    width: 127px;
+    height: 40px;
+    border-radius: 8px;
+    color: black;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+  
+  .nav-link:hover {
+    background: #181818;
+    box-shadow: 0 0 15px 1px #020202;
+    font-weight: 700;
+  }
+  
+  #welcome-section {
+    background-image: url("Images\zkNgu4.jpg") center fixed;
+    backface-visibility:visible;
+  }
+  
+  #about {
+    background-image: url("Images\dynamic-wavy-light-shadow-gray-background_67845-1573.jpg") center fixed;
+  }
+  
+  #projects {
+    background-image: url("Images\828ae316dab0274004e6dda6f69674dd.jpg") center fixed;
+  }
+  
+  #contact {
+    background-image: url("Images\wavy-black-white-background_23-2150530922.webp") center fixed;
+  }
+  
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  
+  .section-content {
+    text-align: center;
+    box-sizing: content-box;
+    padding: 15px;
+    background: #6a6a6a;
+    box-shadow: 0 0 15px 1px #000000;
+    max-width: 90%;
+    border-top-right-radius: 60px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius:80px ;
+    border-bottom-right-radius:40px ;
+  }
+  
+  h1 {
+    font-family: Rufina;
+    font-size: 2.5em;
+  }
+  
+  .project-tiles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: space-between;
+  }
+  
+  .project-tile {
+    flex-basis: 250px;
+    width: 20%;
+    padding: 5px;
+    margin-bottom: 15px;
+    box-sizing: content-box;
+    background: #6a6a6a;
+    box-shadow: 0 0 15px #000000;
+    text-align: center;
+    border-top-right-radius:inherit;
+    border-top-left-radius:inherit;
+    border-bottom-left-radius:35px ;
+    border-bottom-right-radius:35px ;
+    align-items: center;
+  }
+  
+  .project-tile:hover {
+    transform: scale(1.1);
+    z-index: 9;
+  }
+  
+  .tile-details {
+    position: relative;
+  }
+  
+  .tile-image {
+    width: 100%;
+  }
+  
+  .tile-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    padding: 5px;
+    background: #cac5c0;
+    z-index: -1;
+    font-weight: 700;
+  }
+  
+  .project-tile:hover .tile-text {
+    z-index: 1;
+    opacity: .8;
+  }
+  
+  a {
+    color: black;
+    text-decoration: none;
+    font-family: inherit;
+  }
+  
+  .flex-parent {
+    display: flex;
+  }
+  
+  .flex-item {
+    border: none;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+  }
+  
+  input, textarea {
+    display: block;
+    width: 250px;
+    max-width: 95%;
+    min-height: 30px;
+    background: #989795;
+    border: none;
+    resize: none;
+    padding: 5px;
+  }
+  
+  input:focus, textarea:focus {
+    box-shadow: 0 0 15px 1px #000000;
+    outline: 0;
+  }
+  
+  footer {
+    background: #989795;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 600px);
+    min-height: 60px;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  @media only screen and (max-width: 620px) {
+    .flex-parent {
+      flex-direction: column;
+    }
+  }

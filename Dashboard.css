@@ -1,0 +1,9 @@
+.header{
+padding-top: 100%;
+}
+.stuff{
+place-content: center;
+}
+.footer{
+padding-bottom: 100%;
+}

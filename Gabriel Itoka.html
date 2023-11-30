@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Gabriel Itoka</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="font-awesome.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="Images\1696302897805.ico" type="image/png" style="border-radius: 50%;">
+  <style>
+    
+    
+/*------------- Fonts ---------------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/*------------- variables------------*/
+:root{
+    --main-color:#636061;
+    --blue:#0000ff;
+    --blue-dark:#18293c;
+    --orange:#edeae3;
+    --green-yellow:#000000;
+    --pink-light:#8b7c80;
+    --cyan-light:#6eafff;
+    --white: #ffffff;
+    --white-alpha-40: rgba(255, 255, 255, 0.40);
+    --white-alpha-25: rgba(255, 255, 255, 0.25);
+    --backdrop-filter-blur:blur(7px);
+}
+
+/*-------------- Global Settings ----------*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+::before,
+::after{
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom right, var(--blue-light), var(--gray-light));
+    background-attachment: fixed;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: var(--blue-dark);
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    padding: 35px 15px;
+}
+body.hide-scrolling{
+    overflow-y: hidden;
+}
+body::before{
+    position: absolute;
+    left: -100px;
+    top: 50px;
+    height: 100%;
+    width: 100%;
+    background-color: var(--green-yellow);
+    z-index: -1;
+    opacity: 0.12;
+}
+a{
+    text-decoration: none;
+}
+h1,h2{
+    font-weight: 600;
+}
+h3,h4,h5,h6{
+    font-weight: 500;
+}
+img{
+    max-width: 100%;
+    vertical-align: middle;
+}
+ul{
+    list-style: none;
+}
+section{
+    background-color: var(--white-alpha-25);
+    border: 1px solid var(--white-alpha-40);
+    min-height: calc(100vh - 70px);
+    border-radius: 30px;
+    backdrop-filter: var(--backdrop-filter-blur);
+    display: none;
+}
+section.active{
+    display:contents;
+    animation: fadeIn 0.5s ease-in-out forwards;
+} 
+section.fade-out{
+    animation: fadeOut 0.5s ease-in-out forwards;
+}
+.main{
+    max-width: 1200px;
+    margin: auto;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+}
+.main.fade-out{
+    opacity: 0;
+}
+.container{
+    position: absolute;
+    left: -100;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.align-items-center{
+    align-items: center;
+}
+.hidden{
+    display: none !important;
+}
+.sec-padding{
+    padding: 80px 0;
+}
+.flex-end{
+    justify-content: flex-end;
+}
+/*----------- section title --------------*/
+.section-title{
+    padding: 0 15px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.section-title h2{
+    font-size: 40px;
+    text-transform: capitalize;
+}
+/*------------ Custom scrollbar-----------*/
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-track{
+    background-color: var(--white);
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
+}
+/*------------- Buttons ------------------*/
+button{
+    font-family: inherit;
+    user-select: none;
+}
+.btn{
+    line-height: 1.5;
+    background-color: var(--white-alpha-25);
+    border: 1px solid var(--white-alpha-40);
+    padding: 10px 28px;
+    display: inline-block;
+    border-radius: 30px;
+    color: var(--main-color);
+    font-weight: 500;
+    text-transform: capitalize;
+    font-family: inherit;
+    font-size: 25px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+}
+.btn::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background-color: var(--main-color);
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+.btn:hover::before{
+    width: 100%;
+}
+.btn:hover{
+    color: var(--white);
+}
+
+/*---------- Animation keyframes */
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes fadeOut{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes zoomInOut{
+    0%,100%{
+        transform: scale(0.5);
+    }
+    50%{
+        transform: scale(1);
+    }
+}
+@keyframes bounceTop{
+    0%,100%{
+        transform: translateY(-50px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+}
+
+/*---------- Background Circles */
+.bg-circles{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    max-width: 1200px;
+    width: calc(100% - 30px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+.bg-circles div{
+    position: absolute;
+    border-radius: 50%;
+}
+.bg-circles .circle-1{
+    height: 60px;
+    width: 60px;
+    background-color: rgb(123, 255, 123);
+    left: 5%;
+    top: 10%;
+    opacity: 0.6;
+    animation: zoomInOut 8s linear infinite;
+}
+.bg-circles .circle-2{
+    height: 80px;
+    width: 80px;
+    background-color: rgb(95, 189, 248);
+    left: 30%;
+    top: 50%;
+    opacity: 0.6;
+    animation: bounceTop 5s ease-in-out infinite;
+}
+.bg-circles .circle-3{
+    height: 120px;
+    width: 120px;
+    background-color: rgb(255, 133, 152);
+    top: 40%;
+    right: -60px;
+    opacity: 0.2;
+    animation: zoomInOut 8s linear infinite;
+}
+.bg-circles .circle-4{
+    height: 50px;
+    width: 50px;
+    background-color: rgb(241, 241, 140);
+    top: 80%;
+    left: -30px;
+    opacity: 0.5;
+    animation: bounceTop 5s ease-in-out infinite;
+}
+/*----------- Overlay -------------*/
+.overlay{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    z-index: 200;
+    opacity: 0.2;
+    visibility: hidden;
+}
+.overlay.active{
+    visibility: visible;
+}
+
+/*------------- Header --------------*/
+.header{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    padding: 20px 0 0;
+}
+.header.active{
+    position: fixed;
+    top: 35px;
+    padding: 20px 15px;
+}
+.header.active .container{
+    max-width: 1200px;
+    margin: auto ;
+}
+.header .nav-toggler{
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--white-alpha-25);
+    border: 1px solid var(--white-alpha-40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px;
+    z-index: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+.header .nav-toggler.hide{
+    opacity: 0;
+    transition: none;
+}
+.header .nav-toggler  span{
+    height: 2px;
+    width: 24px;
+    background-color: var(--main-color);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+.header.active .nav-toggler  span{
+    background-color: transparent;
+}
+.header .nav-toggler  span::before,
+.header .nav-toggler  span::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color);
+    transition: all 0.3s ease;
+}
+.header .nav-toggler  span::before{
+    left: 0;
+    transform: translateY(-8px);
+}
+.header.active .nav-toggler  span::before{
+    transform: rotate(45deg);
+}
+.header .nav-toggler  span::after{
+    right: 0;
+    transform: translateY(8px);
+}
+.header.active .nav-toggler  span::after{
+    transform: rotate(-45deg);
+}
+.header:not(.active) .nav-toggler:hover  span::before,
+.header:not(.active) .nav-toggler:hover  span::after{
+    width: 50%;
+}
+.header .nav{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 35px 15px;
+    overflow-y: auto;
+    visibility: hidden;
+}
+.header.active .nav{
+    visibility: visible;
+}
+.header .nav-inner{
+    min-height: calc(100vh - 70px);
+    max-width: 1200px;
+    margin: auto;
+    background-color: var(--white-alpha-25);
+    border: 1px solid var(--white-alpha-40);
+    backdrop-filter: var(--backdrop-filter-blur);
+    padding: 50px 0;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+.header.active .nav-inner{
+    opacity: 1;
+}
+.header .nav-inner ul li{
+    text-align: center;
+}
+.header .nav-inner ul li a{
+    font-size: 40px;
+    text-transform: capitalize;
+    color: var(--blue-dark);
+    display: block;
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+.header .nav-inner ul li a::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 50%;
+    width: 0%;
+    background-color: var(--white-alpha-25);
+    z-index: -1;
+    transition: width 0.5s ease;
+}
+.header .nav-inner ul li a:hover::before{
+    width: 100%;
+}
+.header .nav-inner ul li a:hover{
+    color: var(--main-color);
+}
+/*------------- Home section -------------*/
+.home-section{
+    padding: 120px 0;
+}
+.home-section.active{
+    display: flex;
+}
+.home-text,
+.home-img{
+    width: 50%;
+    padding: 15px;
+}
+.home-text p{
+    font-size: 18px;
+}
+.home-text h1{
+    font-size: 50px;
+    text-transform: capitalize;
+}
+.home-text h2{
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 300;
+    margin: 0 0 30px;
+}
+.home-text .btn{
+    margin: 0 15px 15px 0;
+}
+.home-img .img-box{
+    max-width: 360px;
+    background-color: var(--white-alpha-25);
+    border-radius: 50%;
+    border: 8px solid var(--white-alpha-25);
+    margin: auto;
+}
+.home-img .img-box img{
+    width: 100%;
+    border-radius: 50%  ;
+}
+
+/*---------- About Section -----------*/
+.about-img{
+    width: 40%;
+    padding: 0 15px;
+}
+.about-text{
+    width: 60%;
+    padding: 0 15px;
+}
+.about-img .img-box{
+    background-color: var(--white-alpha-25);
+    max-width: 380px;
+    border: 1px solid var(--white-alpha-40);
+    margin: auto;
+    border-radius: 10px;
+}
+.about-img .img-box img{
+    width: 100%;
+}
+.about-text h3{
+    text-transform: capitalize;
+    font-size: 20px;
+    margin: 20px 0;
+}
+.about-text .skills{
+    display: flex;
+    flex-wrap: wrap;
+}
+.about-text .skill-item{
+    background-color: var(--white-alpha-25);
+    border: 1px solid var(--white-alpha-40);
+    padding: 5px 15px;
+    text-transform: capitalize;
+    margin: 0 10px 10px 0;
+    border-radius: 20px;
+}
+.about-tabs{
+    margin-top: 20px;
+}
+.about-tabs .tab-item{
+    padding: 2px 0;
+    background-color: transparent;
+    border: none;
+    text-transform: capitalize;
+    display: inline-block;
+    color: var(--blue-dark);
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    margin: 0 30px 0 0;
+    position: relative;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+} 
+.about-tabs .tab-item:last-child{
+    margin: 0;
+}
+.about-tabs .tab-item:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 1px;
+    background-color: var(--blue-dark);
+    transition: width 0.3s ease;
+}
+.about-tabs .tab-item:hover::before{
+    width: 100%;
+}
+.about-tabs .tab-item.active::before{
+    width: 100%;
+    background-color: var(--main-color);
+}
+.about-tabs .tab-item.active{
+    color: var(--main-color);
+    opacity: 1;
+    cursor: auto;
+}
+.about-text .timeline{
+    position: relative;
+}
+.about-text .timeline::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    top: 0;
+    left: 5px;
+    background-color: var(--main-color);
+}
+.about-text .tab-content{
+    padding: 40px 0;
+    display: none;
+}
+.about-text .tab-content.active{
+    display: block;
+}
+.about-text .timeline-item{
+    margin-bottom: 30px;
+    position: relative;
+    padding: 10px 0 0 40px;
+}
+.about-text .timeline-item::before{
+    content: '';
+    position: absolute;
+    height: 11px;
+    width: 11px;
+    background-color: var(--main-color);
+    left: 0;
+    top: 16px;
+    border-radius: 50%;
+}
+.about-text .timeline-item:last-child{
+    margin-bottom: 0;
+}
+.about-text .timeline-item .date{
+    display: block;
+    color: var(--main-color);
+    font-weight: 400;
+    margin: 0 0 10px;
+}
+.about-text .timeline-item h4{
+    font-size: 18px;
+    text-transform: capitalize;
+    margin: 0 0 10px;
+}
+.about-text .timeline-item h4 span{
+    font-weight: 400;
+}
+.about-text .btn{
+    margin: 0 15px 15px 0;
+}
+
+/*------------ Portfolio section----------*/
+.portfolio-section{
+    padding-bottom: 50px;
+}
+.portfolio-item{
+    width: calc((100% / 3) - 30px);
+    margin: 0 15px 30px;
+}
+.portfolio-item-thumbnail{
+    padding: 10px;
+    background-color: var(--white-alpha-25);
+    border: 1px solid var(--white-alpha-40);
+    border-radius: 10px;
+}
+.portfolio-item-thumbnail img{
+    width: 100%;
+    border-radius: 10px;
+}
+.portfolio-item h3{
+    font-size: 20px;
+    text-transform: capitalize;
+    margin: 20px 0;
+}
+.portfolio-item-details{
+    display: none;
+}
+
+/*--------- portfolio popup-----------*/
+.portfolio-popup{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 200;
+    visibility: hidden;
+}
+.portfolio-popup.open{
+    visibility: visible;
+    overflow-y: auto;
+}
+.pp-inner{
+    min-height: 100vh;
+    padding: 40px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pp-content{
+    background-color: var(--white-alpha-25);
+    padding: 30px;
+    border-radius: 30px;
+    max-width: 900px;
+    width: 100%;
+    border: 1px solid var(--white-alpha-40);
+    backdrop-filter: var(--backdrop-filter-blur);
+    opacity: 0;
+    transform: scale(0.9);
+}
+.portfolio-popup.open .pp-content{
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.5s ease;
+}
+.pp-header{
+    position: relative;
+}
+.pp-header .btn{
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -40px;
+    top: -40px;
+}
+.pp-thumbnail img{
+    border-radius: 10px;
+}
+.pp-header h3{
+    font-size: 25px;
+    text-transform: capitalize;
+    margin: 20px 0 15px;
+}
+.pp-body .description{
+    margin-bottom: 20px;
+}
+.pp-body .general-info li{
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.pp-body .general-info li span{
+    font-weight: 300;
+}
+.pp-body .general-info li a{
+    text-transform: lowercase;
+    color: var(--main-color);
+}
+
+/*----------------- Contact Section ------------*/
+.contact-form,
+.contact-info{
+    width: 50%;
+    padding: 0 15px;
+}
+.contact-form .input-group{
+    width: 100%;
+    margin-bottom: 30px;
+}
+.contact-form .input-control::placeholder{
+    color: var(--blue-dark);
+    opacity: 0.8;
+    font-weight: 300;
+}
+.contact-form .input-control{
+    display: block;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 16px;
+    background-color: var(--white-alpha-25);
+    padding: 0 20px;
+    color: var(--blue-dark);
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+.contact-form .input-control:focus{
+    border-color: var(--white-alpha-40);
+}
+.contact-form textarea.input-control{
+    height: 120px;
+    resize: none;
+    padding-top: 15px;
+}
+.contact-info-item{
+    margin: 0 0 30px;
+    padding: 0 0 0 20px;
+}
+.contact-info-item h3{
+    font-size: 20px;
+    text-transform: capitalize;
+    margin: 0 0 5px;
+}
+.contact-info-item .social-links a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    background-color: var(--white-alpha-25);
+    border: 1px solid var(--white-alpha-40);
+    color: var(--main-color);
+    border-radius: 50%;
+    margin: 6px 4px 0 0;
+    transition: all 0.3s ease;
+}
+.contact-info-item .social-links a:hover{
+    color: var(--white);
+    background-color: var(--main-color);
+}
+
+
+/*------------ Responsive ---------*/
+@media(max-width:991px){
+    .container{
+        padding: 0;
+    }
+    .home-text,
+    .home-img{
+        width: 100%;
+    }
+    .home-text{
+        text-align: center;
+    }
+    .home-img{
+        order: -1;
+    }
+    .home-img .img-box{
+        max-width: 300px;
+    }
+    .home-text .btn{
+        margin: 0 7px 15px;
+    }
+    .portfolio-item{
+        width: calc(50% - 30px);
+    }
+}
+@media(max-width:767px){
+    .contact-form,
+    .contact-info,
+    .about-img,
+    .about-text{
+        width: 100%;
+    }
+    .about-text{
+        margin-top: 30px;
+    }
+    .portfolio-item{
+        width: calc(100% - 30px);
+    }
+    .pp-inner{
+        padding: 30px 15px;
+    }
+    .contact-info{
+        order: -1;
+        margin-bottom: 15px;
+    }
+    .contact-info-item{
+        padding: 0;
+    }
+}
+@media(max-width:575px){
+    .section-title h2,
+    .header .nav-inner ul li a{
+        font-size: 35px;
+    }
+    .home-text h1{
+        font-size: 30px;
+    }
+    .home-text h2{
+        font-size: 18px;
+    }
+    .pp-header h3{
+        font-size: 20px;
+    }
+}
+
+  </style>
+</head>
+<body class="">
+
+  <!-- Background circles start -->
+  <div class="bg-circles">
+    <div class="circle-1"></div>
+    <div class="circle-2"></div>
+    <div class="circle-3"></div>
+    <div class="circle-4"></div>
+  </div>
+  <!-- Background circles end -->
+
+  <!-- Overlay Start -->
+  <div class="overlay">
+  </div>
+  <!-- Overlay end -->
+  <!-- Main Start -->
+  <div class="main">
+
+    <!-- Header Start -->
+    <header class="header">
+      <div class="container">
+        <div class="row flex-end">
+          <button type="button" class="nav-toggler">
+            <span></span>
+          </button>
+          <nav class="nav">
+            <div class="nav-inner">
+              <ul>
+                <li><a href="#home" class="nav-item link-item">Home</a></li>
+                <li><a href="#about" class="nav-item link-item">About</a></li>
+                <li><a href="#contact" class="nav-item link-item">Contact</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- home Section start -->
+    <section class="home-section align-items-center active" id="home">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="home-text">
+            <h1>Gabriel Itoka</h1>
+            <h2>Emerging Software Engeneer at the BlueCrest University College</h2>
+            <a href="#about" class="btn link-item">More about Gabriel</a>
+            <a href="#contact" class="btn link-item">Connect with Gabriel</a>
+          </div>
+          <div class="home-img">
+            <div class="img-box">
+              <img src="Images\394571804_1396768001184085_2419492137213228151_n.jpg" alt="profile-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- home Section end -->
+
+    <!-- About Section start -->
+    <section class="about-section sec-padding" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="section-title">
+            <h2>About </h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="about-img">
+            <div class="img-box">
+              <img src="Images\baba.jpg" alt="about img">
+            </div>
+          </div>
+          <div class="about-text">
+            <p>Web developer with a focus on front-end development. Skilled in HTML, CSS, and JavaScript, as well as popular JavaScript frameworks such as React and Vue.js. Experience with building and maintaining responsive and user-friendly websites and web applications.
+            </p>
+            <h3>Skills</h3>
+            <div class="skills">
+              <div class="skill-item">HTML</div>
+              <div class="skill-item">CSS</div>
+              <div class="skill-item">JAVASCRIPT</div>
+              <div class="skill-item">MYSQL</div>
+              <div class="skill-item">PYTHON</div>
+              <div class="skill-item">C++</div>
+              <div class="skill-item">PHP</div>
+              <div class="skill-item">FOOTBALL</div>
+              <!--<div class="skill-item">C++</div>
+              <div class="skill-item">C#</div> -->
+              
+              
+            </div>
+
+            <div class="about-tabs">
+              <button type="button" class="tab-item active" data-target="#education">Education</button>
+              <button type="button" class="tab-item" data-target="#experience">Experience</button>
+            </div>
+
+            <!-- Education start -->
+            <div class="tab-content active" id="education">
+              <div class="timeline">
+                <div class="timeline-item">
+                  <span class="date">2007 - 2011</span>
+                  <h4>Kingdom Garden</h4>
+                  <p>Salvation Army</p>
+                </div>
+                <div class="timeline-item">
+                  <span class="date">2012 - 2017</span>
+                  <h4>Elementary </h4>
+                  <p>St.Peter Claver Catholic High school</p>
+                </div>
+                <div class="timeline-item">
+                  <span class="date">2018 - 2023</span>
+                  <h4>Junior and Senior High </h4>
+                  <p>St.Peter Claver Catholic High school</p>
+                </div>
+                <div class="timeline-item">
+                  <span class="date">2023/2024</span>
+                  <h4>Completed High School </h4>
+                  <p>St. Peter Claver Catholic High School</p>
+                </div>
+                <div class="timeline-item">
+                  <span class="date">2021 - 2022</span>
+                  <h4>Online Classes on Scripting language</h4>
+                  <p>YouTube
+                  </p>
+                </div>
+                <div class="timeline-item">
+                  <span class="date">2023 - Present</span>
+                  <h4>Studying Software Engeneering </h4>
+                  <p>BlueCrest University College Liberia</p>
+                </div>
+              </div>
+            </div>
+            <!-- Education end -->
+
+            <!-- Experience Start -->
+            <div class="tab-content" id="experience">
+              <div class="timeline">
+                <div class="timeline-item">
+                  <span class="date">2022 - 2023</span>
+                  <h4>Web Developer</h4>
+                  <p>OF <a href="index.html" style="text-decoration: none;">THEM BOYZ</a> webpage
+                  </p>
+                </div>
+
+              </div>
+            </div>
+            <!-- Experience End -->
+            <a href="#contact" class="btn link-item">Contact Gabriel</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Section end -->
+    
+    <!-- Contact Section Start -->
+    <section class="contact-section sec-padding" id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="section-title">
+            <h2>Contact</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="contact-form">
+            <form action="https://submit-form.com/890R4erne" method="post">
+              <div class="row">
+                <div class="input-group">
+                  <input type="text" id="name" name="name" placeholder="Name" class="input-control" required="">
+                </div>
+                <div class="input-group">
+                  <input type="email" id="email" name="email" placeholder="Email" class="input-control" required="">
+                </div>
+                <div class="input-group">
+                  <input type="text" id="subject" name="subject" placeholder="Subject" class="input-control" required="">
+                </div>
+                <div class="input-group">
+                  <textarea placeholder="Message" id="message" name="message" class="input-control" required=""></textarea>
+                </div>
+                <button type="submit" class="btn">Send message</button>
+              </div>
+            </form>
+          </div>
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <h3>Email</h3>
+              <p><i class="fa fa-envelope"></i> itokagabriel0778166446@gmail.com </p>
+            </div>
+            <div class="contact-info-item">
+              <h3>Phone</h3>
+              <p><i class="fa fa-phone"></i> +231555964538 </p>
+            </div>
+            <div class="contact-info-item">
+              <h3>Mobile</h3>
+              <p><i class="fa fa-phone"></i> +231555964538 </p>
+            </div>
+            <div class="contact-info-item">
+              <h3>Whatsapp</h3>
+              <p><i class="fa fa-whatsapp"></i> +231555964538 </p>
+            </div>
+            <div class="contact-info-item">
+              <h3>Follow Gabriel</h3>
+              <div class="social-links" style="font-size: 45px;">
+                <a href="https://web.facebook.com/gabriel.itoka.7" target="_blank"><i class="fa-brands fa-facebook fa-beat-fade"></i></a>
+                <a href="https://web.facebook.com/messages/t/100025526953592" target="_blank"><i class="fa-brands fa-facebook-messenger fa-beat-fade"></i></a>
+                <a href="https://instagram.com/gabrielitoka19?igshid=YTQwZjQ0NmI0OA==" target="_blank"><i class="fa-brands fa-instagram fa-beat-fade"></i></a>
+                <a href="https://www.snapchat.com/add/gabrielitoka?share_id=qwBS-nNeizg&locale=en-GB" target="_blank"><i class="fa-brands fa-snapchat fa-beat-fade"></i></a>
+                <a href="https://github.com/G-Cyber865" target="_blank"><i class="fa-brands fa-github fa-beat-fade"></i></a>
+                <a href="https://api.whatsapp.com/send/?phone=0555964538&text&type=phone_number&app_absent=0" target="_blank"><i class="fa-brands fa-whatsapp fa-beat-fade"></i></a>
+                <!--<a href="#" target="_blank"><i class="fab fa-behance"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-dribbble"></i></a>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section End -->
+
+  </div>
+  <!-- Main End-->
+
+<script src="script.js.download">
+
+  
+
+/*--------------------- toggle Navbar -----------------*/
+const navToggler = document.querySelector(".nav-toggler");
+navToggler.addEventListener("click", () =>{
+    hideSection();
+    toggleNavbar();
+    document.body.classList.toggle("hide-scrolling");
+});
+function hideSection(){
+    document.querySelector("section.active").classList.toggle("fade-out");
+}
+function toggleNavbar(){
+    document.querySelector(".header").classList.toggle("active");
+}
+
+/*--------------------- active Section-----------------*/
+document.addEventListener("click", (e) =>{
+    if(e.target.classList.contains("link-item") && e.target.hash !== ""){
+        //activate the overlay to prevent multiple clicks
+        document.querySelector(".overlay").classList.add("active");
+        navToggler.classList.add("hide");
+        if(e.target.classList.contains("nav-item")){
+            toggleNavbar();
+        }
+        else{
+            hideSection();
+            document.body.classList.add("hide-scrolling");
+        }
+        setTimeout(() =>{
+            document.querySelector("section.active").classList.remove("active","fade-out");
+            document.querySelector(e.target.hash).classList.add("active");
+            window.scrollTo(0,0);
+            document.body.classList.remove("hide-scrolling");
+            navToggler.classList.remove("hide");
+            document.querySelector(".overlay").classList.remove("active");
+        },500);
+    }
+});
+
+
+
+
+
+/*----------------------- About tabs -------------------*/
+const tabsContainer = document.querySelector(".about-tabs"),
+aboutSection = document.querySelector(".about-section");
+
+tabsContainer.addEventListener("click", (e) =>{
+    if(e.target.classList.contains("tab-item") && !e.target.classList.contains("active")){
+        tabsContainer.querySelector(".active").classList.remove("active");
+        e.target.classList.add("active");
+        const target = e.target.getAttribute("data-target");
+        aboutSection.querySelector(".tab-content.active").classList.remove("active");
+        aboutSection.querySelector(target).classList.add("active");
+    }
+});
+
+/*---------------------Portfolio Item Details Popup ------------*/
+document.addEventListener("click", (e) => {
+    if(e.target.classList.contains("view-project-btn")){
+        togglePortfolioPopup();
+        document.querySelector(".portfolio-popup").scrollTo(0,0);
+        portfolioItemDetails(e.target.parentElement);
+    }
+})
+function togglePortfolioPopup(){
+    document.querySelector(".portfolio-popup").classList.toggle("open");
+    document.body.classList.toggle("hide-scrolling");
+    document.querySelector(".main").classList.toggle("fade-out")
+}
+document.querySelector(".pp-close").addEventListener("click", togglePortfolioPopup);
+
+//hide popup when clicking outside of it
+document.addEventListener("click", (e) =>{
+    if(e.target.classList.contains("pp-inner")){
+        togglePortfolioPopup();
+    }
+});
+
+function portfolioItemDetails(portfolioItem){
+    document.querySelector(".pp-thumbnail img").src = portfolioItem.querySelector(".portfolio-item-thumbnail img").src;
+
+    document.querySelector(".pp-header h3").innerHTML = portfolioItem.querySelector(".portfolio-item-title").innerHTML;
+
+    document.querySelector(".pp-body").innerHTML = portfolioItem.querySelector(".portfolio-item-details").innerHTML;
+}
+
+</script>
+<script src="https://kit.fontawesome.com/7e0ad2cecd.js" crossorigin="anonymous"></script>
+
+
+</body></html>
